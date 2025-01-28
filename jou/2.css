@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3e5f5; /* Jasny fioletowy odcień */
+    color: #4a148c; /* Ciemniejszy fiolet */
+}
+
+header {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #8e24aa; /* Fioletowy odcień */
+}
+
+#name {
+    font-weight: bold;
+    color: #9c27b0;
+}
+
+.birthday-message {
+    font-size: 1.2rem;
+    color: #9c27b0;
+    margin-top: 10px;
+}
+
+.interactive {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#birthdayAnimation {
+    font-size: 2rem;
+    color: #8e24aa; /* Fioletowy odcień */
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.photo-gallery {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.gallery img {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form {
+    margin-top: 50px;
+    text-align: center;
+}
+
+textarea {
+    width: 80%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #9c27b0;
+}
+
+button {
+    background-color: #8e24aa; /* Fioletowy odcień */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #7b1fa2;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.9rem;
+    color: #9e9e9e;
+}
+

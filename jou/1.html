@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18 Urodziny - Kochanie</title>
+
+    <!-- Ładowanie czcionki Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3e5f5; /* Jasny fioletowy odcień */
+            color: #4a148c; /* Ciemniejszy fiolet */
+            scroll-behavior: smooth;
+            margin: 0;
+        }
+
+        header {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #8e24aa;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        #name {
+            font-weight: bold;
+            color: #9c27b0;
+        }
+
+        .birthday-message {
+            font-size: 1.2rem;
+            color: #9c27b0;
+            margin-top: 10px;
+        }
+
+        /* Menu nawigacyjne */
+        nav {
+            background-color: #8e24aa; /* Fioletowy odcień */
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-bottom: 3px solid #7b1fa2;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #7b1fa2;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sekcje */
+        .interactive {
+            text-align: center;
+            margin-top: 100px; /* Zapewnienie miejsca dla menu nawigacyjnego */
+            display: none;
+        }
+
+        #birthdayAnimation {
+            font-size: 2.5rem;
+            color: #8e24aa; /* Fioletowy odcień */
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Galeria zdjęć */
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 15px;
+            flex-wrap: wrap;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: 250px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Stylizacja przycisków */
+        button, input[type="file"] {
+            background-color: #8e24aa;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover, input[type="file"]:hover {
+            background-color: #7b1fa2;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 1rem;
+            color: #9e9e9e;
+        }
+
+        .about-us {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .about-us p {
+            font-size: 1.5rem;
+            color: #8e24aa;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-us .photo-gallery {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="javascript:void(0)" onclick="showSection('birthday')">Urodziny</a>
+        <a href="javascript:void(0)" onclick="showSection('about')">Gdzie się spotkaliśmy?</a>
+    </nav>
+
+    <!-- Sekcja z życzeniami urodzinowymi -->
+    <section id="birthday" class="interactive">
+        <h2>Życzenia</h2>
+        <p>18 lat to dopiero początek! Życzę Ci szczęścia, miłości i spełnienia wszystkich marzeń. ❤️</p>
+        <div id="birthdayAnimation">🎉 Wesołych Urodzin! 🎉</div>
+
+        <!-- Sekcja do dodawania zdjęć -->
+        <div>
+            <h3>Dodaj zdjęcia</h3>
+            <input type="file" id="imageUpload" accept="image/*" onchange="addImage(event)" multiple>
+            <p>Wybierz zdjęcia, które chcesz dodać.</p>
+        </div>
+
+        <!-- Galeria zdjęć -->
+        <div id="gallery" class="photo-gallery">
+            <!-- Zdjęcia będą dodawane dynamicznie tutaj -->
+        </div>
+    </section>
+    
+    <!-- Sekcja z opisem, gdzie się spotkaliśmy -->
+    <section id="about" class="interactive">
+        <h2>Gdzie się spotkaliśmy?</h2>
+        <p>
+            Spotkaliśmy się w <strong>piękny dzień w siemianach</strong>, kidy przyjechałaś i myslalem ze poprostu bedzie smiesznie ale w pierwszy dzien załapalismy dobry kontakt i w drugi juz slismy narandke w trip po siemianach i nie oczekiwanie duzo gadalem bo jestes wyjątkowa kicia na następny dzien juz spalisy razem i na nastepny dez słonce moje tak sie poznalismy a potem online z niestety krótkimi spotkaniami ale bardzo fajnymi kocham cie bardzo!
+        </p>
+        
+        <!-- Pierwsze zdjęcie w sekcji "Gdzie się spotkaliśmy?" -->
+        <div class="about-us">
+            <h3>Nasze pierwsze wspólne zdjęcie</h3>
+            <img src="first-meeting.jpg" alt="Nasze pierwsze zdjęcie" style="width: 250px; height: 250px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);">
+
+            <!-- Sekcja do dodawania zdjęć w "Gdzie się spotkaliśmy?" -->
+            <h3>Dodaj zdjęcie z tego miejsca</h3>
+            <input type="file" id="aboutImageUpload" accept="image/*" onchange="addAboutImage(event)" multiple>
+            <p>Dodaj zdjęcie z tego wyjątkowego miejsca.</p>
+            <div id="aboutGallery" class="photo-gallery">
+                <!-- Dodane zdjęcia będą wyświetlane tutaj -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Strona stworzona przez Twojego ukochanego 💖</p>
+    </footer>
+
+    <script>
+        // Funkcja do przełączania sekcji
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.interactive');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            const section = document.getElementById(sectionId);
+            section.style.display = 'block';
+        }
+
+        // Animacja przesuwająca tekst w sekcji z życzeniami
+        window.onload = function () {
+            let message = document.getElementById('birthdayAnimation');
+            let messages = ["🎉 Wesołych Urodzin, Kochanie!", "🎂 Życzę Ci spełnienia marzeń!", "❤️ Miłość, szczęście i uśmiech na każdy dzień!"];
+            let currentMessage = 0;
+            
+            setInterval(function () {
+                message.textContent = messages[currentMessage];
+                currentMessage = (currentMessage + 1) % messages.length;
+            }, 3000);
+        };
+
+        // Funkcja do dodawania zdjęć
+        function addImage(event) {
+            const files = event.target.files;
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const newImage = document.createElement('img');
+                    newImage.src = e.target.result;
+                    newImage.alt = "Dodane zdjęcie";
+                    document.getElementById('gallery').appendChild(newImage);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Funkcja do dodawania zdjęć w sekcji "Gdzie się spotkaliśmy?"
+        function addAboutImage(event) {
+            const files = event.target.files;
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const newImage = document.createElement('img');
+                    newImage.src = e.target.result;
+                    newImage.alt = "Dodane zdjęcie";
+                    document.getElementById('aboutGallery').appendChild(newImage);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Domyślnie pokazujemy sekcję "Urodziny" po załadowaniu strony
+        showSection('birthday');
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
